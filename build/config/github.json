@@ -1,0 +1,31 @@
+{
+  "next": [
+    {
+      "run_when_any" : [
+        "release"
+      ],
+      "build" : "publish",
+      "build_in" : "fitting_format_number",
+      "copy" : [
+        {"../../../inc/format_number.py" : "fitting_format_number/format_number.py"}
+      ],
+      "config" : {
+        "name" : "format_number",
+        "type" : "fitting",
+        "clear_build_path" : false,
+        "visibility" : "public"
+      }
+    },
+    {
+      "run_when_any" : [
+        "schedule"
+      ],
+      "build" : "proxy",
+      "build_in" : "./",
+      "config" : {
+        "clear_build_path" : false,
+        "proxy" : "../../config/schedule.json"
+      }
+    }
+  ]
+}
